@@ -14,6 +14,7 @@
     --spacing-md: 10px;
     --spacing-lg: 15px;
     --spacing-xl: 30px;
+    --spacing-xxl: 60px;
 
 
     --radius-sm: 4px;
@@ -46,7 +47,7 @@ h1, h2, h3, h4, h5, h6 {
 }
 
 section {
-    padding: 60px var(--spacing-md);
+    padding: 60px var(--spacing-lg);
 }
 
 img {
@@ -71,6 +72,8 @@ img {
   white-space: nowrap;
 }
 
+
+
 body {
     font-family: var(--text-family-base);
     font-optical-sizing: auto;
@@ -79,10 +82,26 @@ body {
     background: var(--background-body)
 }
 
+.skip-link {
+  position: absolute;
+  top: -40px;
+  left: 0;
+  background: var(--color-primary);
+  color: #ffffff;
+  padding: 8px 16px;
+  z-index: 100;
+  transition: top 0.3s;
+}
+
+/* Bring the link into view when it is focused via keyboard */
+.skip-link:focus {
+  top: 0;
+}
+
 header {
     display: flex;   
     background: var(--background-white);
-    padding: 15px 5%;
+    padding: var(--spacing-lg) 5%;
     align-items: center;
     justify-content: space-between;
 }
@@ -95,7 +114,7 @@ p {
 
 .nav-social-media {
     display: flex;
-    gap: 30px;
+    gap: var(--spacing-xl);
 }
 
 .nav-social-media a {
@@ -139,6 +158,10 @@ nav a:active, .footer-nav a {
 
 .nav-social-media, nav {
   flex: 1; /* Forces equal space allocation */
+}
+
+.menu-toggle-open, .menu-toggle-close, .inner-social-link {
+    display: none;
 }
 
 nav {
@@ -274,6 +297,178 @@ footer {
 footer .nav-social-media {
     justify-content: center;
 }
+
+
+@media(max-width: 768px) {
+    .xs-hidden {
+        display: none
+    }
+
+    header {
+        padding-left: var(--spacing-lg);
+        padding-right: var(--spacing-lg);
+    }
+
+    section {
+        padding: var(--spacing-xl) var(--spacing-lg)
+    }
+
+    p {
+        font-size: 1.2rem;
+    }
+
+    .menu-toggle-open, .menu-toggle-close, .inner-social-link {
+        display: block;
+    }
+
+    #primary-navigation {
+        display: none;
+    }
+
+    #primary-navigation.is-active {
+        display: block;
+        position: fixed;
+        background: #fff;
+        top: 0;
+        right: 0;
+        bottom: 0;
+        left: 0;
+        z-index: 1;
+    }
+
+    #primary-navigation.is-active ul{
+        flex-direction: column;
+        justify-content: space-evenly;
+        align-items: center;
+        height: 100%;
+    }
+
+    #primary-navigation.is-active .inner-social-link ul {
+        display: flex;
+        flex-direction: row;
+        justify-content: center;
+        align-items: center;
+    }
+
+    #primary-navigation.is-active .inner-social-link a{
+        display: inline-block;
+        width: 30px;
+        height: 30px;
+        padding: 0;
+    }
+
+    #primary-navigation.is-active .inner-social-link svg{
+        width: 100%;
+        height: 100%;
+        fill: var(--color-primary);
+    }
+
+    .menu-toggle-open {
+        background: none;
+        border: none;
+        cursor: pointer;
+        display: flex;
+        flex-direction: column;
+        justify-content: space-between;
+        width: 30px;
+        height: 22px; 
+        padding: 0;
+    }
+
+    .menu-toggle-open .line {
+        display: inline-block;
+        width: 100%;
+        height: 4px;
+        background: var(--color-primary);
+    }
+
+    .menu-toggle-close {
+        background: none;
+        border: none;
+        cursor: pointer;
+        position: relative;
+        width: 24px;
+        height: 24px;
+        padding: 0;
+        margin-left: auto; /* Pushes the button to the top-right corner */
+        display: block;
+        top: 15px;
+        right: 15px;
+    }
+
+    .cross-line {
+        position: absolute;
+        top: 10px;
+        left: 0;
+        width: 100%;
+        height: 4px;
+        background-color: var(--color-primary);    
+    }
+
+    /* Cross line rotations */
+    .menu-toggle-close .line-1 {
+        transform: rotate(45deg);
+    }
+
+    .menu-toggle-close .line-2 {
+        transform: rotate(-45deg);
+    }
+
+    .intro .container {
+        flex-direction: column;
+    }
+
+    .intro figure {
+        flex: 0 0 100%;
+        max-width: 100%;
+    }
+
+    .intro h2 {
+        font-size: 2.5rem;
+    }
+
+    .gallery figure {
+        flex-basis: 49%;
+        max-width: 49%;
+    }
+
+    .menu h2 {
+        font-size: 2rem;
+    }
+
+    .menu h3 {
+        font-size: 1.3rem;
+    }
+
+    .menu li {
+        flex-basis: 100%;
+        max-width: 100%;
+    }
+
+    .menu li:nth-child(even), .menu li:nth-child(odd) {
+        padding: 0;
+    }
+
+    .testimonial .container {
+        flex-direction: column;
+    }
+
+    .testimonial figure {
+        flex-basis: 100%;
+        max-width: 100%;
+    }
+
+    blockquote {
+        position: static;
+        transform: none;
+        width: 100%;
+        
+    }
+
+    .testimonial p {
+        font-size: 1.3rem;
+    }
+}   
 
 
 

@@ -14,8 +14,9 @@
 </head>
 
 <body>
+    <a href="#main-content" class="skip-link">Skip to main content</a>
     <header>
-        <ul class="nav-social-media">
+        <ul class="nav-social-media xs-hidden">
             <li>
                 <a href="https://www.facebook.com/profile.php?id=61573624482740" target="_blank"
                     aria-label="Chiri's Momo Delight Facebook Link">
@@ -41,7 +42,17 @@
             </a>
         </h1>
 
-        <nav>
+        <button class="menu-toggle-open" aria-expanded="false" aria-controls="primary-navigation"
+            aria-label="Open Menu">
+            <span class="line line-1"></span>
+            <span class="line line-2"></span>
+            <span class="line line-3"></span>
+        </button>
+        <nav id="primary-navigation" aria-label="Main Navigation">
+            <button type="button" class="menu-toggle-close" aria-label="Close Menu">
+                <span class="cross-line line-1"></span>
+                <span class="cross-line line-2"></span>
+            </button>
             <ul>
                 <li>
                     <a href="#">Menu</a>
@@ -52,10 +63,30 @@
                 <li>
                     <a href="#">Truck Schedule</a>
                 </li>
+                <li class="inner-social-link">
+                    <ul>
+                        <li>
+                            <a href="https://www.facebook.com/profile.php?id=61573624482740" target="_blank"
+                                aria-label="Chiri's Momo Delight Facebook Link">
+                                <svg>
+                                    <use href="images/facebook.svg"></use>
+                                </svg>
+                            </a>
+                        </li>
+                        <li>
+                            <a href="https://www.instagram.com/chirismomodelight/" target="_blank"
+                                aria-label="Chiri's Momo Delight Instagram Link">
+                                <svg>
+                                    <use href="images/instagram.svg"></use>
+                                </svg>
+                            </a>
+                        </li>
+                    </ul>
+                </li>
             </ul>
         </nav>
     </header>
-    <main>
+    <main href="main-content">
         <section class="intro">
             <div class="container">
                 <figure>
@@ -213,8 +244,8 @@
                     <a href="#">Truck Schedule</a>
                 </li>
             </ul>
-    
-             <ul class="nav-social-media">
+
+            <ul class="nav-social-media">
                 <li>
                     <a href="https://www.facebook.com/profile.php?id=61573624482740" target="_blank"
                         aria-label="Chiri's Momo Delight Facebook Link">
@@ -234,6 +265,45 @@
             </ul>
         </div>
     </footer>
+    <script>
+        const openButton = document.querySelector(".menu-toggle-open");
+        const closeButton = document.querySelector(".menu-toggle-close");
+        const navMenu = document.querySelector("#primary-navigation");
+
+        // Function to open the menu
+        function openMenu() {
+            openButton.setAttribute('aria-expanded', 'true');
+            navMenu.classList.add('is-active');
+            closeButton.focus(); // Shift focus inside for accessibility
+        }
+
+        // Function to close the menu
+        function closeMenu() {
+            openButton.setAttribute('aria-expanded', 'false');
+            navMenu.classList.remove('is-active');
+            openButton.focus(); // Return focus to the open button
+        }
+
+        // Event Listeners
+        openButton.addEventListener('click', openMenu);
+        closeButton.addEventListener('click', closeMenu);
+
+        // Close menu if user presses the Escape key
+        document.addEventListener('keydown', (e) => {
+            if (e.key === 'Escape' && navMenu.classList.contains('is-active')) {
+                closeMenu();
+            }
+        });
+
+        // Reset menu if window resizes past mobile view
+        const mediaQuery = window.matchMedia('(max-width: 768px)');
+        mediaQuery.addEventListener('change', (e) => {
+            if (!e.matches) {
+                navMenu.classList.remove('is-active');
+                openButton.setAttribute('aria-expanded', 'false');
+            }
+        });
+    </script>
 </body>
 
 </html>
