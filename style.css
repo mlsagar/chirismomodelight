@@ -1,0 +1,193 @@
+:root {
+    --color-primary: #c0281a;
+    --color-text: #333333;
+    
+
+    --background-body: #f1f1ef;
+    --background-white: #fff;
+
+
+    --font-family-base: "Source Serif 4", serif;
+    --font-family-header: "Berkshire Swash", serif;
+
+    --spacing-sm: 5px;
+    --spacing-md: 10px;
+    --spacing-lg: 15px;
+    --spacing-xl: 30px;
+
+
+    --radius-sm: 4px;
+    --radius-md: 8px;
+
+}
+
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+ul {
+    list-style: none;
+}
+
+a {
+    color: inherit;
+    text-decoration: none;
+    
+    &:hover {
+        text-decoration: none;
+    }
+}
+
+h1, h2, h3, h4, h5, h6 {
+    font-family: var(--font-family-header)
+}
+
+section {
+    padding: 60px var(--spacing-md);
+}
+
+img {
+    width: 100%;
+}
+
+.container {
+    max-width: 1199px;
+    width: 100%;
+    margin: 0 auto;
+}
+
+.sr-only {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  padding: 0;
+  margin: -1px;
+  overflow: hidden;
+  clip: rect(0, 0, 0, 0);
+  border: 0;
+  white-space: nowrap;
+}
+
+body {
+    font-family: var(--text-family-base);
+    font-optical-sizing: auto;
+    font-style: normal;
+    font-size: 16px;
+    background: var(--background-body)
+}
+
+header {
+    display: flex;   
+    background: var(--background-white);
+    padding: 15px 5%;
+    align-items: center;
+    justify-content: space-between;
+}
+
+p {
+    font-size: 1.4rem;
+    line-height: 1.2;
+    margin-bottom: var(--spacing-lg)
+}
+
+.nav-social-media {
+    display: flex;
+    gap: 30px;
+}
+
+.nav-social-media a {
+    display: inline-block;
+    width: 30px; 
+    height: 30px;
+}
+
+.nav-social-media svg {
+    width: 100%;
+    height: 100%;
+    fill: var(--color-primary);
+}
+
+
+.site-logo a{
+    display: inline-block;
+    width: 100px;
+}
+
+/* .site-logo img {
+    width: 100%;
+} */
+
+nav ul {
+    display: flex;
+    justify-content: flex-end;
+    gap: 30px;
+}
+
+nav a {
+    color: var(--color-primary);
+    font-size: 1.2rem;
+    padding: 10px 5px;
+
+    
+}
+
+nav a:active {
+    border-bottom: 1px solid var(--color-primary);
+}
+
+
+.nav-social-media, nav {
+  flex: 1; /* Forces equal space allocation */
+}
+
+nav {
+  text-align: right; /* Aligns text to the outer edge */
+}
+
+
+
+.intro .container {
+    display: flex;
+    gap: 30px;
+}
+
+.intro figure {
+    flex: 0 0 40%;
+    max-width: 40%;
+}
+
+/* .intro img {
+    width: 100%;
+} */
+
+.intro h2 {
+    font-size: 3rem;
+    line-height: 1.2;
+    text-align: center;
+    margin-bottom: var(--spacing-xl)
+}
+
+.gallery .container {
+    display: flex;
+    gap: .33%;
+    flex-wrap: wrap;
+}
+
+.gallery figure {
+    flex: 0 0 33%;
+    max-width: 33%;
+    min-height: 100%;
+    margin-bottom: .33%;
+}
+
+.gallery img {
+    height: 100%;
+    object-fit: cover;
+}
+
+
+
+
