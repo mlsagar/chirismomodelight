@@ -298,6 +298,27 @@ footer .nav-social-media {
     justify-content: center;
 }
 
+.intro.about .container {
+    display: block;
+    gap: none;
+}
+
+.about .wrapper {
+    display: flex;
+    gap: 30px;
+}
+
+.about__left {
+    flex: 0 0 30%;
+    max-width: 30%;
+}
+
+.about__left figure {
+    flex-basis: 100%;
+    max-width: 100%;
+    margin-bottom: 15px;
+}
+
 
 @media(max-width: 768px) {
     .xs-hidden {
@@ -467,6 +488,20 @@ footer .nav-social-media {
 
     .testimonial p {
         font-size: 1.3rem;
+    }
+
+    .about .wrapper {
+        gap: none;
+        flex-wrap: wrap;
+    }
+
+    .about__left {
+        flex: 0 0 100%;
+        max-width: 100%;
+    }
+
+    .about__left figure:last-child {
+        margin-bottom: 0;
     }
 }   
 
