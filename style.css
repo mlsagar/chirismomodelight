@@ -319,6 +319,42 @@ footer .nav-social-media {
     margin-bottom: 15px;
 }
 
+.address {
+    margin-bottom: 60px
+}
+
+.address h2 {
+    font-size: 2.5rem;
+    margin-bottom: var(--spacing-xl);
+}
+
+.address ul {
+    margin-bottom: 15px;
+}
+
+.address li, address p {
+    font-size: 1.5rem;
+    line-height: 1.2;
+    font-style: normal;
+    margin-bottom: 5px;
+}
+
+.map-wrapper {
+    position: relative;
+  width: 100%;
+  padding-bottom: 56.25%; /* Creates a standard 16:9 widescreen aspect ratio */
+  height: 0;
+  overflow: hidden;
+}
+
+.map-wrapper iframe {
+    position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+}
+
 
 @media(max-width: 768px) {
     .xs-hidden {
@@ -502,6 +538,19 @@ footer .nav-social-media {
 
     .about__left figure:last-child {
         margin-bottom: 0;
+    }
+
+    .address h2 {
+        font-size: 2rem;
+    }
+
+    .address ul {
+        margin-bottom: 15px;
+    }
+
+    .address li, address p {
+        font-size: 1.3rem;
+        line-height: 1.2;
     }
 }   
 
